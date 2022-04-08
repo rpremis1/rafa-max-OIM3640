@@ -11,12 +11,15 @@ Assuming the successful completion of both the minimum and stretch goals, the le
 ### Individual Goals - Rafa
 
 (1) Further understand data retrieval from API, as well as its limitations (e.g. Twitter’s API has a cap on the maximum number of searches one can conduct in a day).
+
 (2) Better comprehend the differences in data manipulation between R’s Tidyverse/dplyr and Pandas, as well as GGPlot2 vs. Matplotlib/Plotnine.
+
 (3) Understand the estimation procedure of sentiment scores.
 
 ### Individual Goals - Max
 
 (1) Build a great Flask WebApp by combining knowledge from my WebTech class with the learnings from the Problem Solving & Software Design Class. 
+
 (2) Learn more about the integration of Flask and Heroku.
 
 ### Shared Goals
