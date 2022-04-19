@@ -5,8 +5,8 @@ import json
 import tweepy
 
 # authentication
-auth = tweepy.OAuthHandler(consumer_key = consumer_key, consumer_secret= consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
+# tweepy.OAuthHandler()
+auth = tweepy.OAuthHandler(consumer_key = consumer_key, consumer_secret = consumer_secret)
 api = tweepy.API(auth=auth)
 
 print(api.update_status('tweepy + oauth!'))
