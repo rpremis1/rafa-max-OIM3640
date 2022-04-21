@@ -1,5 +1,5 @@
 from config import consumer_key, consumer_secret, access_token, access_token_secret, bearer_token
-from aux_functions import create_dict, create_sorted_dict, process_file, most_common
+from aux_functions import create_dict, create_sorted_dict, process_file, most_common, create_tweet_list
 
 import tweepy
 import json
@@ -32,19 +32,15 @@ new_tweets = client.search_recent_tweets(query=new_query, start_time=start_time,
 # print(new_tweets) # save as CSV or whatever to not keep querying
 # print(new_tweets.data)
 
-def create_tweet_list(tweets):
-    lst = []
-    for tweet in tweets.data:
-        lst.append(tweet.text)
-    return lst
+def main():
+    a_list = create_tweet_list(new_tweets)
+    a_dict = create_dict(a_list)
+    sorted_dict = create_sorted_dict(a_dict)
+    most_common_list = most_common(sorted_dict, 5, True)
+    print(most_common_list)
 
-a_list = create_tweet_list(new_tweets)
-
-a_dict = create_dict(a_list)
-sorted_dict = create_sorted_dict(a_dict)
-most_common_list = most_common(sorted_dict, 5, True)
-
-print(most_common_list)
+if __name__ == '__main__':
+    main()
 
 
 

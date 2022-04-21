@@ -65,3 +65,9 @@ def most_common(sorted_dictionary, k_words, excluding_stopwords=False):
                 continue
         lst.append((freq, word))
     return lst[0:k_words]
+
+def create_tweet_list(tweets):
+    lst = []
+    for tweet in tweets.data:
+        lst.append(tweet.text)
+    return lst
