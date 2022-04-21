@@ -1,11 +1,14 @@
+from asyncio.windows_events import NULL
 from config import consumer_key, consumer_secret, access_token, access_token_secret, bearer_token
-from aux_functions import create_dict, create_sorted_dict, process_file, most_common, create_tweet_list
+from aux_functions import analyze_sentiment, create_dict, create_sorted_dict, get_datetime_utc, process_file, most_common, create_tweet_list
 
 import tweepy
 import json
 import string
 # import pandas as pd
+from datetime import datetime, timezone 
 # import plotnine
+# from plotnine import *
 
 client = tweepy.Client(bearer_token=bearer_token)
 
@@ -19,7 +22,9 @@ client = tweepy.Client(bearer_token=bearer_token)
 #         print(tweet.context_annotations)
 
 # new_query = 'from:elonmusk OR from:pmarca boring -is:retweet -is:reply'
-new_query = 'from:elonmusk -is:retweet -is:reply'
+
+username = 'elonmusk'
+new_query = f'from:{username} -is:retweet -is:reply'
 start_time = '2022-04-15T00:00:00z'
 # end_time = '2022-04-21T00:00:00z'
 
@@ -33,11 +38,23 @@ new_tweets = client.search_recent_tweets(query=new_query, start_time=start_time,
 # print(new_tweets.data)
 
 def main():
+    print(get_datetime_utc())
+
     a_list = create_tweet_list(new_tweets)
     a_dict = create_dict(a_list)
     sorted_dict = create_sorted_dict(a_dict)
     most_common_list = most_common(sorted_dict, 5, True)
     print(most_common_list)
+
+    # df_1 = pd.DataFrame(most_common_list, columns = ['frequency', 'word'])
+    # # print(df_1)
+
+    # print((ggplot(df_1, aes(y = 'frequency', x = 'word', fill = 'word', color = 'word')) # https://plotnine.readthedocs.io/en/stable/
+    # + geom_bar(stat = 'identity') 
+    # + theme(legend_position = 'bottom', legend_title = element_blank())
+    # + scale_y_continuous(minor_breaks = NULL)
+    # + labs(x = '', y = '', title = 'Frequency of Word (Y) vs. Word Name (X) by Word Name (Colors) and Word Name (Facets)')))
+    # + facet_wrap('~movie_name', ncol = 3, scales = 'free_x')))
 
 if __name__ == '__main__':
     main()

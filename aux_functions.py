@@ -1,4 +1,8 @@
 import string
+import nltk
+# nltk.download('vader_lexicon') # This is needed to run the sentiment analyis
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from datetime import datetime, timezone 
 
 def create_dict(listed_review):
     """
@@ -71,3 +75,23 @@ def create_tweet_list(tweets):
     for tweet in tweets.data:
         lst.append(tweet.text)
     return lst
+
+def analyze_sentiment(listed_review):
+    """
+    This function takes a list of reviews and uses the SentimentIntensityAnalyzer function from nltk to derive sentiment scores for each of the reviews being analyzed. It requires that the user
+    specifies a review in list format, as done in previous lines of code.
+    """
+    lst = []
+    for line in range(len(listed_review)):
+        line = listed_review[line]
+        score = SentimentIntensityAnalyzer().polarity_scores(line)
+        for key, value in score.items():
+            lst.append((key, value))
+    return lst
+
+def get_datetime_utc():
+    first_time = str(datetime.now(timezone.utc))
+    new_time = first_time.replace(" ", "T")
+    split_time = new_time.split(".")[0]
+    final_time = split_time + 'z'
+    return final_time
