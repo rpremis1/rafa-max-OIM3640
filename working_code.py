@@ -1,7 +1,9 @@
 from config import consumer_key, consumer_secret, access_token, access_token_secret, bearer_token
+from aux_functions import create_dict, create_sorted_dict, process_file, most_common
 
 import tweepy
 import json
+import string
 # import pandas as pd
 # import plotnine
 
@@ -18,7 +20,7 @@ client = tweepy.Client(bearer_token=bearer_token)
 
 # new_query = 'from:elonmusk OR from:pmarca boring -is:retweet -is:reply'
 new_query = 'from:elonmusk -is:retweet -is:reply'
-start_time = '2022-04-19T00:00:00z'
+start_time = '2022-04-15T00:00:00z'
 # end_time = '2022-04-21T00:00:00z'
 
 new_tweets = client.search_recent_tweets(query=new_query, start_time=start_time, tweet_fields = ["created_at", "text", "source"],
@@ -37,7 +39,12 @@ def create_tweet_list(tweets):
     return lst
 
 a_list = create_tweet_list(new_tweets)
-print(a_list)
+
+a_dict = create_dict(a_list)
+sorted_dict = create_sorted_dict(a_dict)
+most_common_list = most_common(sorted_dict, 5, True)
+
+print(most_common_list)
 
 
 
