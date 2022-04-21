@@ -95,3 +95,20 @@ def get_datetime_utc():
     split_time = new_time.split(".")[0]
     final_time = split_time + 'z'
     return final_time
+
+def make_query(usernames, username_operator, keyword_operator, keywords=None, include_retweet=False, include_reply=False):
+    usernames_str = f' {username_operator} from: '.join(usernames)
+    if keywords is None:
+        initial_query = f'from: {usernames_str}'
+    elif keywords is not None:   
+        keywords_str = f' {keyword_operator} '.join(keywords)
+        initial_query = f'from: {usernames_str} {keywords_str}'
+    if include_retweet and include_reply:
+        query = initial_query
+    if include_retweet is False and include_reply is False:
+        query = initial_query + ' -is:retweet' + ' -is:reply'
+    elif include_reply is False:
+        query = initial_query + ' -is:reply'
+    elif include_retweet is False:
+        query = initial_query + ' -is:retweet'
+    return query

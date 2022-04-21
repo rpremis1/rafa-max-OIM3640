@@ -1,6 +1,6 @@
 from asyncio.windows_events import NULL
 from config import consumer_key, consumer_secret, access_token, access_token_secret, bearer_token
-from aux_functions import analyze_sentiment, create_dict, create_sorted_dict, get_datetime_utc, process_file, most_common, create_tweet_list
+from aux_functions import analyze_sentiment, create_dict, create_sorted_dict, get_datetime_utc, process_file, most_common, create_tweet_list, make_query
 
 import tweepy
 import json
@@ -23,8 +23,11 @@ client = tweepy.Client(bearer_token=bearer_token)
 
 # new_query = 'from:elonmusk OR from:pmarca boring -is:retweet -is:reply'
 
-username = 'elonmusk'
-new_query = f'from:{username} -is:retweet -is:reply'
+usernames = ['elonmusk', 'pmarca']
+keywords = ['Boring']
+new_query = make_query(usernames, 'OR', 'OR', include_retweet=False, include_reply=False)
+
+
 start_time = '2022-04-15T00:00:00z'
 # end_time = '2022-04-21T00:00:00z'
 
@@ -41,6 +44,7 @@ def main():
     print(get_datetime_utc())
 
     a_list = create_tweet_list(new_tweets)
+    print(a_list)
     a_dict = create_dict(a_list)
     sorted_dict = create_sorted_dict(a_dict)
     most_common_list = most_common(sorted_dict, 5, True)

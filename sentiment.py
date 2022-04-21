@@ -1,11 +1,8 @@
 from config import consumer_key, consumer_secret, access_token, access_token_secret, bearer_token
-from aux_functions import analyze_sentiment, create_dict, create_sorted_dict, process_file, most_common, create_tweet_list
+from aux_functions import analyze_sentiment, create_dict, create_sorted_dict, process_file, most_common, create_tweet_list, make_query
 
 import tweepy
 import json
-import nltk
-# nltk.download('vader_lexicon') # This is needed to run the sentiment analyis
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import pandas as pd
 
 client = tweepy.Client(bearer_token=bearer_token)
