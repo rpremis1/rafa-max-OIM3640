@@ -3,23 +3,11 @@ from config import consumer_key, consumer_secret, access_token, access_token_sec
 from aux_functions import create_dict, create_sorted_dict, get_datetime_utc, get_default_start_date, most_common, create_tweet_list, make_query
 
 import tweepy
-import json
 import string
 import pandas as pd
-from datetime import datetime, timezone 
-import plotnine
 from plotnine import *
 
 client = tweepy.Client(bearer_token=bearer_token)
-
-# query = 'from:suhemparack -is:retweet'
-
-# tweets = client.search_recent_tweets(query=query, tweet_fields=['context_annotations', 'created_at'], max_results=100)
-
-# for tweet in tweets.data:
-#     print(tweet.text)
-#     if len(tweet.context_annotations) > 0:
-#         print(tweet.context_annotations)
 
 # new_query = 'from:elonmusk OR from:pmarca boring -is:retweet -is:reply'
 
@@ -33,9 +21,6 @@ end_time = get_datetime_utc()
 
 new_tweets = client.search_recent_tweets(query=new_query, start_time=start_time, end_time = end_time, tweet_fields = ["created_at", "text", "source"],
              user_fields = ["name", "username", "location", "verified", "description"], max_results = 10, expansions='author_id')
-
-# new_tweets = client.search_recent_tweets(query=new_query, start_time=start_time, end_time=end_time, tweet_fields = ["created_at", "text", "source"],
-#              user_fields = ["name", "username", "location", "verified", "description"], max_results = 10, expansions='author_id')
 
 # print(new_tweets) # save as CSV or whatever to not keep querying
 # print(new_tweets.data)
