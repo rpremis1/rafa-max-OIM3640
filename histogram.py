@@ -9,8 +9,6 @@ from plotnine import *
 
 client = tweepy.Client(bearer_token=bearer_token)
 
-# new_query = 'from:elonmusk OR from:pmarca boring -is:retweet -is:reply'
-
 usernames = ['elonmusk', 'pmarca']
 keywords = ['Boring']
 new_query = make_query(usernames, 'OR', 'OR', include_retweet=False, include_reply=False)
