@@ -2,7 +2,7 @@ import string
 import nltk
 # nltk.download('vader_lexicon') # This is needed to run the sentiment analyis
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from datetime import datetime, timezone 
+from datetime import datetime, timezone, timedelta 
 
 def create_dict(listed_review):
     """
@@ -90,8 +90,34 @@ def analyze_sentiment(listed_review):
     return lst
 
 def get_datetime_utc():
-    first_time = str(datetime.now(timezone.utc))
-    new_time = first_time.replace(" ", "T")
+    first_time = datetime.now(timezone.utc)
+    correct_time = str(first_time - timedelta(0, 60, 0))
+    new_time = correct_time.replace(" ", "T")
     split_time = new_time.split(".")[0]
     final_time = split_time + 'z'
     return final_time
+
+def get_default_start_date():
+    time = datetime.now(timezone.utc)
+    start_date = str(time - timedelta(6, 86380, 0))
+    new_time = start_date.replace(" ", "T")
+    split_time = new_time.split(".")[0]
+    final_time = split_time + 'z'
+    return final_time
+
+def make_query(usernames, username_operator, keyword_operator, keywords=None, include_retweet=False, include_reply=False):
+    usernames_str = f' {username_operator} from: '.join(usernames)
+    if keywords is None:
+        initial_query = f'from: {usernames_str}'
+    elif keywords is not None:   
+        keywords_str = f' {keyword_operator} '.join(keywords)
+        initial_query = f'from: {usernames_str} {keywords_str}'
+    if include_retweet and include_reply:
+        query = initial_query
+    if include_retweet is False and include_reply is False:
+        query = initial_query + ' -is:retweet' + ' -is:reply'
+    elif include_reply is False:
+        query = initial_query + ' -is:reply'
+    elif include_retweet is False:
+        query = initial_query + ' -is:retweet'
+    return query
