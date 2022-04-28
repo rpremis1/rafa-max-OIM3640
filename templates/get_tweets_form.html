@@ -82,56 +82,54 @@
         {% if error %}
         <p style="color: red">We can't validate your input, please try again</p>
         {% endif %}
-        <p>Enter Username 1: <input type="text" name="username1" id="" /></p>
-        <p>Enter Username 2: <input type="text" name="username2" id="" /></p>
+        <p>Enter Username: <input type="text" name="username1" id="" /></p>
+        <!-- <p>Enter Username 2: <input type="text" name="username2" id="" /></p> -->
 
         <br />
         <br />
-        
+
         <p>
-            Start Date:
-            <input
+          Start Date:
+          <input
             type="date"
             id="start"
             name="start-date"
             value="2022-04-22"
-            min= '2022-04-22'
+            min="2022-04-22"
             max="2022-04-28"
-            />
-            
-            End Date:
-            <input
+          />
+
+          End Date:
+          <input
             type="date"
             id="start"
             name="end-date"
             value="2022-04-28"
             min="2022-04-21"
-            max="2022-04-28"/>
+            max="2022-04-28"
+          />
         </p>
         <br />
         <br />
         <p>
-            Keyword: 
-            <input type="text"
-            name="keyword"
-            value="">
-        </p>
-        <br>
-        <br>
-        <p>
-            Retweets: 
-            <input type="checkbox" name="retweet">
-            Replies: 
-            <input type="checkbox" name="reply">
-        </p>
-        <br>
-        <p>
-          <input type="submit" value="Get Sentiment" />
+          Keyword:
+          <input type="text" name="keyword" value="" />
         </p>
         <br />
         <br />
-    </form>
-</div>
-
+        <p>
+          Retweets:
+          <input type="checkbox" name="retweet" />
+          Replies:
+          <input type="checkbox" name="reply" />
+        </p>
+        <br>
+        <p>
+          <input type="submit" value="Get Tweets" />
+        </p>
+        <br />
+        <br />
+      </form>
+    </div>
   </body>
 </html>

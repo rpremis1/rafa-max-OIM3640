@@ -61,11 +61,11 @@
           <ul>
             <li><a href="{{url_for('index')}}">Index</a></li>
 
-            <li><a href="#">Find Tweets</a></li>
+            <li><a href="{{url_for('get_tweets')}}">Find Tweets</a></li>
             <li>
               <a href="{{ url_for('get_sentiment')}}">Sentiment Analysis</a>
             </li>
-            <li><a href="#">Histogram</a></li>
+            <li><a href="{{ url_for('get_histogram')}}">Histogram</a></li>
           </ul>
         </div>
       </div>
