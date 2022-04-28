@@ -1,6 +1,4 @@
 import string
-import nltk
-# nltk.download('vader_lexicon') # This is needed to run the sentiment analyis
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from datetime import datetime, timezone, timedelta 
 

@@ -3,7 +3,6 @@ from config import consumer_key, consumer_secret, access_token, access_token_sec
 from aux_functions import create_dict, create_sorted_dict, get_datetime_utc, get_default_start_date, most_common, create_tweet_list, make_query
 
 import tweepy
-import string
 import pandas as pd
 from plotnine import *
 
