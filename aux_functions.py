@@ -119,3 +119,4 @@ def make_query(usernames, username_operator, keyword_operator, keywords=None, in
     elif include_retweet is False:
         query = initial_query + ' -is:retweet'
     return query
+

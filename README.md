@@ -52,4 +52,3 @@ As it pertains to data retrieval, it seems like the biggest risk is our lack of 
 
 Further understanding of NLP techniques would certainly help in this project. Alternatively, covering Pandas and other data manipulation techniques/packages would also help.
 More (code) examples of Flask or other frameworks that can be used in order to build a web application. Further explanation about Heroku and its implementation/integration with Flask.
-
