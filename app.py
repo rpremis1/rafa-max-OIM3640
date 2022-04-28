@@ -51,9 +51,8 @@ def get_sentiment():
         
 
        
-        # new_query = make_query(username, 'OR', 'OR', keywords, False, False)
-        # new_tweets = new_tweets = client.search_recent_tweets(query=new_query, start_time=start_time, end_time=end_time, tweet_fields=["created_at", "text", "source"],
-        #                                                       user_fields=["name", "username", "location", "verified", "description"], max_results=10, expansions='author_id')
+        new_tweets = client.search_recent_tweets(query=new_query, start_time=start_time, end_time=end_time, tweet_fields=["created_at", "text", "source"],
+                                                              user_fields=["name", "username", "location", "verified", "description"], max_results=10, expansions='author_id')
         # sentiment_list = analyze_sentiment(create_tweet_list(new_tweets))
         # sentiment_df = pd.DataFrame(sentiment_list, columns=['sentiment', 'value'])
         # aggregated_df = sentiment_df.groupby(['sentiment']).mean().reset_index()
@@ -69,8 +68,6 @@ def get_sentiment():
                                retweet=retweet,
                                reply=reply,
                                new_query = new_query
-
-                               # query = new_query
                                )
 
         # print((ggplot(aggregated_df, aes(y='value', x='sentiment', fill='sentiment', color='sentiment'))
