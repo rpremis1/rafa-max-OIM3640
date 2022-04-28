@@ -19,16 +19,24 @@ def index():
 def get_sentiment():
     
     if request.method == 'POST':
-        username = (request.form['username'])
+        usernames = []
+        username1 = (request.form['username1'])
+        username2 = (request.form['username2'])
+        usernames.append(username1)
+        usernames.append(username2)
+        
+        # print(usernames)
+        
         start = (request.form['start-date'])
         start_time = start + 'T00:00:00z'
         end = (request.form['end-date'])
         end_time = end+'T00:00:00z'
+        keywords = []
         keyword = (request.form['keyword'])
+        keywords.append(keyword)
         retweet = request.form.get('retweet')
         reply = request.form.get('reply')
-        # if retweet == 'None': 
-        #     retweet = False 
+       
         if retweet == 'on': 
             retweet = True 
         else: 
@@ -39,7 +47,8 @@ def get_sentiment():
         else: 
             reply = False 
 
-        new_query = make_query(username, 'OR', 'OR', keyword, retweet, reply)
+        new_query = make_query(usernames, 'OR', 'OR', keywords, retweet, reply)
+        
 
        
         # new_query = make_query(username, 'OR', 'OR', keywords, False, False)
@@ -53,7 +62,7 @@ def get_sentiment():
         # new_query = make_query(username, 'OR', 'OR', keyword, retweet, reply)
 
         return render_template('get_sentiment_result.html',
-                               username=username,
+                               usernames=usernames,
                                start_time=start_time,
                                end_time=end_time,
                                keyword=keyword,
