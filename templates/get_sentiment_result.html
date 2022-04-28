@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nearest Station</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .nav {
+        background-color: black;
+        color: white;
+        height: 40px;
+        text-align: center;
+      }
+      .nav .container {
+        max-width: 500px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .navlinks {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container ul li {
+        display: inline-block;
+        padding: 10px 15px;
+      }
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: large;
+      }
+
+      #box {
+        background-color: black;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 20px;
+        margin-right: auto;
+        margin-left: auto;
+        width: 30%;
+      }
+      h3 {
+        text-align: center;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="nav">
+      <div class="container">
+        <div class="navlinks">
+          <ul>
+            <li><a href="{{url_for('index')}}">Index</a></li>
+
+            <li><a href="#">Find Tweets</a></li>
+            <li>
+              <a href="{{ url_for('get_sentiment')}}">Sentiment Analysis</a>
+            </li>
+            <li><a href="#">Histogram</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br />
+    <br />
+    <br />
+
+    <div id="box">
+      <p>Sentiment Analysis: 
+        <br>
+        <b>{{ username }} </b>
+        <br>
+      
+        <b>{{start_time}}</b>
+        <br>
+        <b>{{end_time}}</b>
+        <br>
+        <b>{{keyword}}</b>
+        <br>
+        <b>{{retweet}}</b>
+        <br>
+        <b>{{reply}}</b>
+        <br>
+        <b>{{new_query}}</b>
+      </p>
+      <br>
+      <br>
+      <p>Want to input something else?</p>
+      <br>
+      <a href="{{ url_for('get_sentiment') }}">Sentiment Analysis</a>
+    </div>
+  </body>
+</html>

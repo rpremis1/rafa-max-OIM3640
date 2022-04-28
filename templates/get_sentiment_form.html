@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .nav {
+        background-color: black;
+        color: white;
+        height: 40px;
+        text-align: center;
+      }
+      .nav .container {
+        max-width: 500px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .navlinks {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container ul li {
+        display: inline-block;
+        padding: 10px 15px;
+      }
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: large;
+      }
+
+      #box {
+        background-color: black;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 20px;
+        margin-right: auto;
+        margin-left: auto;
+        width: 30%;
+      }
+      h3 {
+        text-align: center;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container">
+        <div class="navlinks">
+          <ul>
+            <li><a href="{{url_for('index')}}">Index</a></li>
+
+            <li><a href="#">Find Tweets</a></li>
+            <li>
+              <a href="{{ url_for('get_sentiment')}}">Sentiment Analysis</a>
+            </li>
+            <li><a href="#">Histogram</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br />
+    <br />
+    <br />
+
+    <div id="box">
+      <h3>Please enter the required data</h3>
+      <br />
+      <br />
+      <form method="POST">
+        {% if error %}
+        <p style="color: red">We can't validate your input, please try again</p>
+        {% endif %}
+        <p>Enter Username: <input type="text" name="username" id="" /></p>
+        <br />
+        <br />
+        
+        <p>
+            Start Date:
+            <input
+            type="date"
+            id="start"
+            name="start-date"
+            value="2022-04-20"
+            min="2022-04-20"
+            max="2022-04-27"
+            />
+            
+            End Date:
+            <input
+            type="date"
+            id="start"
+            name="end-date"
+            value="2022-04-27"
+            min="2022-04-20"
+            max="2022-04-27"/>
+        </p>
+        <br />
+        <br />
+        <p>
+            Keyword: 
+            <input type="text"
+            name="keyword"
+            value="">
+        </p>
+        <br>
+        <br>
+        <p>
+            Retweets: 
+            <input type="checkbox" name="retweet">
+            Replies: 
+            <input type="checkbox" name="reply">
+        </p>
+        <p>
+          <input type="submit" value="Get Sentiment" />
+        </p>
+        <br />
+        <br />
+    </form>
+</div>
+<!-- 
+            <p>Include Retweet: <input type="checkbox" id="retweet" name="retweet" value="twitter"></p>
+            <br>
+            <br>
+            
+            <p>Include Reply:  <input type="checkbox" id="reply" name="reply" value="twitter"></p>
+            <br>
+            <br>
+            
+            <p>
+                <input type="submit" value="Validate Input">
+            </p>
+            <br>
+        </form> -->
+    -->
+    <!-- Enter username: <input type="text">
+        <br>
+        <br>
+      Start Date: <input type="date" id="start" name="trip-start"
+      value="2022-04-27"
+      min="2022-04-20" max="2022-04-27">
+      <br>
+      <br>
+      End Date: <input type="date" id="start" name="trip-start"
+      value="2022-04-27"
+      min="2022-04-20" max="2022-04-27">
+      <br>
+      <br>
+      Include Retweet: <input type="checkbox" id="retweet" name="retweet" value="twitter">
+      <br>
+      <br>
+      Include Reply:  <input type="checkbox" id="reply" name="reply" value="twitter">
+      <br>
+      <br> -->
+
+    <!-- </p> -->
+  </body>
+</html>
