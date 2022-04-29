@@ -26,8 +26,9 @@ def get_sentiment():
         usernames.append(username1)
         usernames.append(username2)
 
-        start = (request.form['start-date'])
-        start_time = start + 'T00:00:00z'
+        # start = (request.form['start-date'])
+        # start_time = start + 'T00:00:00z'
+        start_time = get_default_start_date()
         end = (request.form['end-date'])
         end_time = end+'T00:00:00z'
         keywords = []
@@ -71,6 +72,7 @@ def get_sentiment():
                                reply=reply,
                                new_query=new_query,
                                plot=plot
+                               
                                )
 
     else:
