@@ -39,7 +39,7 @@
         font-size: large;
       }
 
-      #box {
+      p {
         background-color: black;
         color: white;
         font-family: Arial, Helvetica, sans-serif;
@@ -59,8 +59,7 @@
       <div class="container">
         <div class="navlinks">
           <ul>
-            <li><a href="{{url_for('index')}}">Index</a></li>
-
+            <li><a href="{{ url_for('index')}}">Index</a></li>
             <li><a href="{{url_for('get_tweets')}}">Find Tweets</a></li>
             <li>
               <a href="{{ url_for('get_sentiment')}}">Sentiment Analysis</a>
@@ -74,50 +73,10 @@
     <br />
     <br />
 
-    <div id="box">
-      <h3>Please enter the required data</h3>
-      <br />
-      <br />
-      <form method="POST">
-        {% if error %}
-        <p style="color: red">We can't validate your input, please try again</p>
-        {% endif %}
-        <p>Enter Username 1: <input type="text" name="username1" id="" /></p>
-        <br />
-
-        <p>Enter Username 2: <input type="text" name="username2" id="" /></p>
-        <br />
-
-        <!-- <p>Enter Username 3: <input type="text" name="username3" id="" /></p> -->
-
-        
-        <br />
-        <br />
-        <p>
-          Keyword:
-          <input type="text" name="keyword" value="" />
-        </p>
-      
-
-        <!-- <p>
-          Number of Results:
-          <input type="number" name="result" value="" />
-        </p> -->
-        <br />
-        <br />
-        <p>
-          Retweets:
-          <input type="checkbox" name="retweet" />
-          Replies:
-          <input type="checkbox" name="reply" />
-        </p>
-        <br />
-        <p>
-          <input type="submit" value="Get Histogram" />
-        </p>
-        <br />
-        <br />
-      </form>
-    </div>
+    <p>
+     Oops, something went wrong! 
+     <br>
+     Please surf around and try again. 
+    </p>
   </body>
 </html>

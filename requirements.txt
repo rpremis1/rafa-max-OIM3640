@@ -1,8 +1,0 @@
-Flask==2.0.3
-matplotlib==3.5.1
-nltk==3.7
-pandas==1.4.0
-plotnine==0.8.0
-pyparsing==3.0.7
-tweepy==4.8.0
-gunicorn
