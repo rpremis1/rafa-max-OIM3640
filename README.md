@@ -24,3 +24,15 @@ This page returns a histogram of the five most commonly used words for tweets by
 
 ![histogram](images/elon.png)
 
+#### Dependencies
+All library dependencies can be found below:
+- import string
+- from nltk.sentiment.vader import SentimentIntensityAnalyzer
+- from datetime import datetime, timezone, timedelta
+- from asyncio.windows_events import NULL
+- from types import NoneType
+- from config import bearer_token
+- import tweepy
+- import pandas
+- import plotnine
+- from plotnine import *
