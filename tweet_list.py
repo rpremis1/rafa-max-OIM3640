@@ -9,8 +9,7 @@ client = tweepy.Client(bearer_token=bearer_token)
 
 def main():
     usernames = ['elonmusk']
-    # keywords = ['speech']
-    keywords = []
+    keywords = ['speech']
     new_query = make_query(usernames, 'OR', 'OR', keywords=keywords,
                            include_retweet=False, include_reply=False)
 
