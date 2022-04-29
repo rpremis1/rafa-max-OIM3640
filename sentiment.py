@@ -12,7 +12,7 @@ client = tweepy.Client(bearer_token=bearer_token)
 def main():
     usernames = ['elonmusk', 'pmarca']
     keywords = ['Boring']
-
+    
     new_query = make_query(usernames, 'OR', 'OR', include_retweet=False, include_reply=False)
     start_time = get_default_start_date()
     end_time = get_datetime_utc() 
