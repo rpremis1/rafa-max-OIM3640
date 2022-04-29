@@ -1,4 +1,4 @@
-- Allow user to specify number of most common words (k_words in function)
-- Allow user to specify number of tweet results they want (must be between 1 and 100, maybe 100 by default)
-- Return HTML page saying "Oooops that did not return any results" -> take them back to home page
+- Allow user to specify number of most common words (k_words in function) 
+- Allow user to specify number of tweet results they want (must be between 1 and 100, maybe 100 by default) - currently 10-100 
+- Return HTML page saying "Oooops that did not return any results" -> take them back to home page - done 
 - Figure out Heroku integration
