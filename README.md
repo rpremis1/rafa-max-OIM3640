@@ -4,6 +4,6 @@ This website uses the Twitter API to retrieve information the user desires. Befo
 
 ## Tweets
 
-This page allows a user to search for tweets by a certain user(name) containing a keyword, and specify whether or not they want to include retweets/replies. The following is an example of a query looking for tweets by Elon Musk containing the word 'speech' that can include retweets and replies.
+This page allows a user to search for tweets by a certain user(name) containing a keyword, and specify whether or not they want to include retweets/replies. The following is an example of a query looking for tweets by Elon Musk containing the word 'speech' that can include retweets and replies. CHECK
 
 ![tweets](images/tweet_list.jpeg.png)
