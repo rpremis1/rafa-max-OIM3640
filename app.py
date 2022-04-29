@@ -25,12 +25,8 @@ def get_sentiment():
         if request.method == 'POST':
             usernames = []
             username1 = (request.form['username1'])
-            username2 = (request.form['username2'])
-          
-           
 
             usernames.append(username1)
-            usernames.append(username2)
             
 
             start_time = get_default_start_date()
@@ -153,10 +149,8 @@ def get_histogram():
         if request.method == 'POST':
             usernames = []
             username1 = (request.form['username1'])
-            username2 = (request.form['username2'])
            
             usernames.append(username1)
-            usernames.append(username2)
            
             start_time = get_default_start_date()
         
