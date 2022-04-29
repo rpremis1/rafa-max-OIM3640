@@ -3,6 +3,16 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+/.bundle
+/vendor/bundle/
+/vendor/ruby/
+
+
+db/*.sqlite3
+/db/*.sqlite3-journal
+/log/*
+/tmp/*
+
 # Pyre type checker
 .pyre/
 config.py
