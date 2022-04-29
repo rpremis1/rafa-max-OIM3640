@@ -26,13 +26,16 @@ def get_sentiment():
         usernames.append(username1)
         usernames.append(username2)
 
-        start = (request.form['start-date'])
-        start_time = start + 'T00:00:00z'
-        end = (request.form['end-date'])
-        end_time = end+'T00:00:00z'
+        # start = (request.form['start-date'])
+        start_time = get_default_start_date()
+        # end = (request.form['end-date'])
+        end_time = get_datetime_utc()
         keywords = []
         keyword = (request.form['keyword'])
-        keywords.append(keyword)
+        if keyword is None:
+            keywords = None
+        else:
+            keywords.append(keyword)
         retweet = request.form.get('retweet')
         reply = request.form.get('reply')
 
@@ -60,7 +63,7 @@ def get_sentiment():
                  + theme(legend_position='bottom',
                          legend_title=element_blank())
                  + scale_y_continuous(minor_breaks=NULL)
-                 + labs(x='', y='', title='Mean Sentiment Value (Y) vs. Sentiment Kind (X) by Sentiment Kind (Colors)', caption=f'Only tweets containing {keywords} by {usernames}')))
+                 + labs(x='', y='', title='Mean Sentiment Value (Y) vs. Sentiment Kind (X) by Sentiment Kind (Colors)')))
 
         return render_template('get_sentiment_result.html',
                                usernames=usernames,
@@ -86,13 +89,16 @@ def get_tweets():
         usernames.append(username1)
         # usernames.append(username2)
 
-        start = (request.form['start-date'])
-        start_time = start + 'T00:00:00z'
-        end = (request.form['end-date'])
-        end_time = end+'T00:00:00z'
+        # start = (request.form['start-date'])
+        start_time = get_default_start_date()
+        # end = (request.form['end-date'])
+        end_time = get_datetime_utc()
         keywords = []
         keyword = (request.form['keyword'])
-        keywords.append(keyword)
+        if keyword is None:
+            keywords = None
+        else:
+            keywords.append(keyword)
         retweet = request.form.get('retweet')
         reply = request.form.get('reply')
 
@@ -132,13 +138,16 @@ def get_histogram():
         usernames.append(username1)
         usernames.append(username2)
 
-        start = (request.form['start-date'])
-        start_time = start + 'T00:00:00z'
-        end = (request.form['end-date'])
-        end_time = end+'T00:00:00z'
+        # start = (request.form['start-date'])
+        start_time = get_default_start_date()
+        # end = (request.form['end-date'])
+        end_time = get_datetime_utc()
         keywords = []
         keyword = (request.form['keyword'])
-        keywords.append(keyword)
+        if keyword is None:
+            keywords = None
+        else:
+            keywords.append(keyword)
         retweet = request.form.get('retweet')
         reply = request.form.get('reply')
 
@@ -166,7 +175,6 @@ def get_histogram():
                 + geom_bar(stat='identity')
                 + theme(legend_position='bottom', legend_title=element_blank())
                 + scale_y_continuous(minor_breaks=NULL)
-                # + facet_grid('~movie_name', scales = 'free_x')
                 + labs(x='', y='', title='Frequency of Word (Y) vs. Word Name (X) by Word Name (Colors) and Word Name (Facets)'))
 
         return render_template('get_histogram_result.html',

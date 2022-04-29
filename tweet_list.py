@@ -1,4 +1,5 @@
 from asyncio.windows_events import NULL
+from types import NoneType
 from config import bearer_token
 from aux_functions import get_datetime_utc, get_default_start_date, make_query
 
@@ -20,8 +21,11 @@ def main():
     new_tweets = client.search_recent_tweets(query=new_query, start_time=start_time, end_time=end_time, tweet_fields=["created_at", "text", "source"],
                                              user_fields=["name", "username", "location", "verified", "description"], max_results=max_results, expansions='author_id')
 
-    for tweet in new_tweets.data:
-        print(tweet.text)
+    if type(new_tweets.data) == NoneType:
+        print('Not working')
+    else:
+        for tweet in new_tweets.data:
+                print(tweet.text)
 
 if __name__ == "__main__":
     main()
