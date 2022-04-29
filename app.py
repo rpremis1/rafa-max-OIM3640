@@ -20,16 +20,18 @@ def index():
 @app.route('/get-sentiment/', methods=['GET', 'POST'])
 def get_sentiment():
 
-    # try: 
+    try: 
 
         if request.method == 'POST':
             usernames = []
             username1 = (request.form['username1'])
             username2 = (request.form['username2'])
+          
            
 
             usernames.append(username1)
             usernames.append(username2)
+            
 
             start_time = get_default_start_date()
             end_time = get_datetime_utc()
@@ -81,8 +83,8 @@ def get_sentiment():
 
         else:
             return render_template('get_sentiment_form.html')
-    # except: 
-    #     return render_template('oops.html')
+    except: 
+        return render_template('oops.html')
 
 @app.route('/get-twitter-list/', methods=['GET', 'POST'])
 def get_tweets():
