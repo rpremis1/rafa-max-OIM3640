@@ -1,0 +1,3 @@
+- Allow user to specify number of most common words (k_words in function)
+- Allow user to specify number of tweet results they want (must be between 1 and 100, maybe 100 by default)
+- Figure out Heroku integration

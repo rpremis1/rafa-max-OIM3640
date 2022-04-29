@@ -12,12 +12,13 @@ client = tweepy.Client(bearer_token=bearer_token)
 def main():
     usernames = ['elonmusk', 'pmarca']
     keywords = ['Boring']
-    
+
     new_query = make_query(usernames, 'OR', 'OR', include_retweet=False, include_reply=False)
     start_time = get_default_start_date()
     end_time = get_datetime_utc() 
+    max_results = 100
     new_tweets = client.search_recent_tweets(query=new_query, start_time=start_time, end_time = end_time, tweet_fields = ["created_at", "text", "source"],
-             user_fields = ["name", "username", "location", "verified", "description"], max_results = 10, expansions='author_id')
+             user_fields = ["name", "username", "location", "verified", "description"], max_results = max_results, expansions='author_id')
 
     sentiment_list = analyze_sentiment(create_tweet_list(new_tweets))
     sentiment_df = pd.DataFrame(sentiment_list, columns = ['sentiment', 'value'])

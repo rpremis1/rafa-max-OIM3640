@@ -15,9 +15,10 @@ def main():
 
     start_time = get_default_start_date()
     end_time = get_datetime_utc()
+    max_results = 100
 
     new_tweets = client.search_recent_tweets(query=new_query, start_time=start_time, end_time=end_time, tweet_fields=["created_at", "text", "source"],
-                                             user_fields=["name", "username", "location", "verified", "description"], max_results=10, expansions='author_id')
+                                             user_fields=["name", "username", "location", "verified", "description"], max_results=max_results, expansions='author_id')
 
     for tweet in new_tweets.data:
         print(tweet.text)
