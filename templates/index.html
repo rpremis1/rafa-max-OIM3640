@@ -60,10 +60,11 @@
         <div class="navlinks">
           <ul>
             <li><a href="{{ url_for('index')}}">Index</a></li>
-            <li><a href="#">Find Tweets</a></li>
-            <li><a href="{{ url_for('get_sentiment')}}">Sentiment Analysis</a></li>
-            <li><a href="#">Histogram</a></li>
-            <!-- <li><a href="#">About</a></li> -->
+            <li><a href="{{url_for('get_tweets')}}">Find Tweets</a></li>
+            <li>
+              <a href="{{ url_for('get_sentiment')}}">Sentiment Analysis</a>
+            </li>
+            <li><a href="{{ url_for('get_histogram')}}">Histogram</a></li>
           </ul>
         </div>
       </div>
@@ -73,70 +74,10 @@
     <br />
 
     <p>
-        Hello and Welcome! 
-        <br>
-        Please navigate through our Website and access what you are interested in, with the navigation bar
+      Hello and Welcome!
+      <br />
+      Please navigate through our Website and access what you are interested in,
+      with the navigation bar
     </p>
-
-    <!-- <p>
-       <h3>Please enter the required data</h3>
-       <form method="POST">
-            {% if error %}
-            <p style="color: red;">
-            We can't validate your input, please try again</p>
-            {% endif %}
-            <p>Enter Username: <input type="text" name="username" id=""></p>
-            <br>
-            <br>
-            
-            
-
-            <p>Date: <input type="date" id="start" name="trip-start"
-                value="2022-04-27"
-                min="2022-04-20" max="2022-04-27"> </p>
-            <br>
-            <br>
-            <!-- <p>End Date: <input type="date" id="start" name="trip-start"
-                value="2022-04-27"
-                min="2022-04-20" max="2022-04-27">
-            </p> -->
-    <!-- <br>
-            <br> -->
-    <!-- 
-            <p>Include Retweet: <input type="checkbox" id="retweet" name="retweet" value="twitter"></p>
-            <br>
-            <br>
-
-            <p>Include Reply:  <input type="checkbox" id="reply" name="reply" value="twitter"></p>
-            <br>
-            <br>
-
-            <p>
-                <input type="submit" value="Validate Input">
-            </p>
-            <br>
-       </form> -->
-    -->
-    <!-- Enter username: <input type="text">
-      <br>
-      <br>
-      Start Date: <input type="date" id="start" name="trip-start"
-      value="2022-04-27"
-      min="2022-04-20" max="2022-04-27">
-      <br>
-      <br>
-      End Date: <input type="date" id="start" name="trip-start"
-      value="2022-04-27"
-      min="2022-04-20" max="2022-04-27">
-      <br>
-      <br>
-      Include Retweet: <input type="checkbox" id="retweet" name="retweet" value="twitter">
-      <br>
-      <br>
-      Include Reply:  <input type="checkbox" id="reply" name="reply" value="twitter">
-      <br>
-      <br> -->
-
-    <!-- </p> -->
   </body>
 </html>

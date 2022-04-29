@@ -11,6 +11,7 @@ client = tweepy.Client(bearer_token=bearer_token)
 
 usernames = ['elonmusk', 'pmarca']
 keywords = ['Boring']
+
 new_query = make_query(usernames, 'OR', 'OR', include_retweet=False, include_reply=False)
 print(new_query)
 
@@ -26,11 +27,12 @@ def main():
     sentiment_list = analyze_sentiment(create_tweet_list(new_tweets))
     sentiment_df = pd.DataFrame(sentiment_list, columns = ['sentiment', 'value'])
     aggregated_df = sentiment_df.groupby(['sentiment']).mean().reset_index()
+    df_caption = f'Only tweets containing {keywords} by {usernames}'
     print((ggplot(aggregated_df, aes(y = 'value', x = 'sentiment', fill = 'sentiment', color = 'sentiment')) 
     + geom_bar(stat = 'identity') 
     + theme(legend_position = 'bottom', legend_title = element_blank())
     + scale_y_continuous(minor_breaks = NULL)
-    + labs(x = '', y = '', title = 'Mean Sentiment Value (Y) vs. Sentiment Kind (X) by Sentiment Kind (Colors)', caption = f'Only tweets containing {keywords} by {usernames}')))
+    + labs(x = '', y = '', title = 'Mean Sentiment Value (Y) vs. Sentiment Kind (X) by Sentiment Kind (Colors)', caption = df_caption)))
 
 if __name__ == '__main__':
     main()

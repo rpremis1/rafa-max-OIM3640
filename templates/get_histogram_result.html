@@ -2,9 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Nearest Station</title>
     <style>
       * {
         padding: 0;
@@ -54,6 +53,7 @@
       }
     </style>
   </head>
+
   <body>
     <nav class="nav">
       <div class="container">
@@ -75,63 +75,30 @@
     <br />
 
     <div id="box">
-      <h3>Please enter the required data</h3>
-      <br />
-      <br />
-      <form method="POST">
-        {% if error %}
-        <p style="color: red">We can't validate your input, please try again</p>
-        {% endif %}
-        <p>Enter Username 1: <input type="text" name="username1" id="" /></p>
-        <p>Enter Username 2: <input type="text" name="username2" id="" /></p>
-
-        <br />
-        <br />
-        
-        <p>
-            Start Date:
-            <input
-            type="date"
-            id="start"
-            name="start-date"
-            value="2022-04-22"
-            min= '2022-04-22'
-            max="2022-04-28"
-            />
-            
-            End Date:
-            <input
-            type="date"
-            id="start"
-            name="end-date"
-            value="2022-04-28"
-            min="2022-04-21"
-            max="2022-04-28"/>
-        </p>
-        <br />
-        <br />
-        <p>
-            Keyword: 
-            <input type="text"
-            name="keyword"
-            value="">
-        </p>
+      <p>Histogram Analysis: 
         <br>
+        <!-- <b>{{ usernames }} </b> -->
         <br>
-        <p>
-            Retweets: 
-            <input type="checkbox" name="retweet">
-            Replies: 
-            <input type="checkbox" name="reply">
-        </p>
+      
+        <!-- <b>{{start_time}}</b> -->
         <br>
-        <p>
-          <input type="submit" value="Get Sentiment" />
-        </p>
-        <br />
-        <br />
-    </form>
-</div>
-
+        <!-- <b>{{end_time}}</b> -->
+        <br>
+        <!-- <b>{{keyword}}</b> -->
+        <br>
+        <!-- <b>{{retweet}}</b> -->
+        <br>
+        <!-- <b>{{reply}}</b> -->
+        <br>
+        <!-- <b>{{new_query}}</b> -->
+        <br>
+        <b>{{plot}}</b>
+      </p>
+      <br>
+      <br>
+      <p>Want to input something else?</p>
+      <br>
+      <a href="{{ url_for('get_histogram') }}">Histogram Analysis</a>
+    </div>
   </body>
 </html>
